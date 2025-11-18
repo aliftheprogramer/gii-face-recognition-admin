@@ -1,6 +1,4 @@
-<!-- app/pages/dashboard/index.vue -->
- <script setup lang="ts">
- 
+<script setup lang="ts">
 // Mock Data User sesuai gambar
 const users = ref(Array(9).fill({
   name: 'Budi Siregar',
@@ -37,24 +35,11 @@ const users = ref(Array(9).fill({
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div 
+      <ItemUser 
         v-for="(user, index) in users" 
         :key="index" 
-        class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex gap-4 items-center"
-      >
-        <img 
-          :src="user.photo" 
-          alt="User" 
-          class="w-16 h-16 rounded-lg object-cover bg-gray-200"
-        >
-        <div class="flex flex-col">
-          <h3 class="font-bold text-gray-900 text-base">{{ user.name }}</h3>
-          <p class="text-gray-400 text-xs mb-2">{{ user.email }}</p>
-          <button class="text-blue-500 text-sm font-semibold text-left hover:underline">
-            Lihat detail
-          </button>
-        </div>
-      </div>
+        :user="user" 
+      />
     </div>
   </div>
 </template>
