@@ -1,5 +1,15 @@
 <!-- app/pages/index.vue -->
 
+<script setup lang="ts">
+definePageMeta({
+  middleware: [
+    function (to, from) {
+      return navigateTo('/dashboard');
+    },
+  ],
+});
+</script>
+
 <template>
-    <h1 class="text-4xl">Hello, Nuxt 3 with Tailwind CSS!</h1>
+  <div />
 </template>
