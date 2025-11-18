@@ -24,11 +24,11 @@ defineProps<{
     <div class="flex flex-col justify-between h-full"> 
       
       <div> 
-        <h3 class="font-visby font-extrabold text-gray-900 text-xl leading-snug">
+        <h3 class="font-visby font-extrabold text-gray-900 text-xl leading-snug ">
           {{ user.name }}
         </h3>
         
-        <p class="font-visby font-extrabold text-gray-400 text-base leading-snug">
+        <p class="font-visby font-extrabold text-gray-400 text-base leading-snug ">
           {{ user.email }}
         </p>
       </div>
