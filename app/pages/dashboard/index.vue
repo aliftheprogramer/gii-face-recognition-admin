@@ -1,3 +1,5 @@
+// /pages/dashboard/index.vue
+
 <script setup lang="ts">
 // Mock Data User sesuai gambar
 const users = ref(Array(9).fill({

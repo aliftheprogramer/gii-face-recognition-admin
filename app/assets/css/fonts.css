@@ -1,0 +1,18 @@
+/* assets/css/fonts.css */
+
+@font-face {
+  font-family: 'Visby CF';
+  src: url('~/assets/fonts/VisbyCF-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Visby CF';
+  src: url('~/assets/fonts/VisbyCF-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* Tambahkan variasi font lainnya yang Anda butuhkan (Regular, Light, dll.) */
