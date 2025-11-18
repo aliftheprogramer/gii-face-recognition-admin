@@ -1,5 +1,6 @@
 <!-- app/pages/dashboard/index.vue -->
  <script setup lang="ts">
+ 
 // Mock Data User sesuai gambar
 const users = ref(Array(9).fill({
   name: 'Budi Siregar',
@@ -31,7 +32,7 @@ const users = ref(Array(9).fill({
       </div>
       <div>
         <h2 class="text-gray-700 font-bold text-lg">Jumlah Terdaftar</h2>
-        <p class="text-2xl font-bold text-gray-900">67</p>
+        <p class="text-2xl font-bold text-gray-900">{{ users.length }}</p>
       </div>
     </div>
 
