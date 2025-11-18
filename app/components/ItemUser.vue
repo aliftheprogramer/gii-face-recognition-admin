@@ -13,8 +13,8 @@ defineProps<{
 
 <template>
   <div 
-    class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex gap-4 items-center"
-  >
+    class="bg-white p-4 rounded-xl border border-gray-100 flex gap-4 items-center" 
+    >
     <img 
       :src="user.photo" 
       :alt="user.name + ' Photo'" 
