@@ -3,7 +3,7 @@
 const users = ref(Array(9).fill({
   name: 'Budi Siregar',
   email: 'budisiregar@gmail.com',
-  photo: 'https://i.pravatar.cc/150?img=12' // Placeholder image
+  photo: 'https://imgs.search.brave.com/Uy5R1sqgg79Frn7Wzl-IftTVO9E0w96gK0kBZrVEJQg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTMw/NDQwMDc2L3Bob3Rv/L2h1bWFuLWJvZHku/anBnP2I9MSZzPTYx/Mng2MTImdz0wJms9/MjAmYz1CM3NWazJj/R2ZoOUxUWGplVXd1/ZUQ3WXA3a1BJdVVX/RXBSYWYzTFlHUGhV/PQ' // Placeholder image
 }));
 </script>
 
