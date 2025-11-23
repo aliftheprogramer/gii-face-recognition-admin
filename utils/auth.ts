@@ -1,4 +1,5 @@
 import { ENDPOINTS } from './core'
+import { ref } from 'vue'
 
 const STORAGE_KEY = 'auth'
 
@@ -21,6 +22,8 @@ export function setAuth(payload: AuthPayload) {
       copy.expiry_at = Date.now() + Math.max(0, payload.expires_in * 1000 - 30000)
     }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(copy))
+    // update reactive store as well
+    try { authStore.value = copy } catch (e) { /* ignore */ }
   } catch (e) {
     // ignore storage errors
   }
@@ -46,6 +49,19 @@ export function removeAuth() {
     localStorage.removeItem(STORAGE_KEY)
   } catch (e) {
     // ignore
+  }
+}
+
+// reactive auth store (client-side) so UI can react to login/logout
+export const authStore = ref<AuthPayload | null>(null)
+
+// hydrate store from localStorage on client
+if (process.client) {
+  try {
+    const v = localStorage.getItem(STORAGE_KEY)
+    if (v) authStore.value = JSON.parse(v)
+  } catch (e) {
+    authStore.value = null
   }
 }
 

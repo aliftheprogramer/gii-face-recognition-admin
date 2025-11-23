@@ -1,23 +1,26 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import SideNavbar from '../components/SideNavbar.vue'
-import { getAuth, isTokenValid } from '../../utils/auth'
+import { authStore, isTokenValid } from '../../utils/auth'
 
 const showSidebar = ref(false)
 
-onMounted(async () => {
-  // quick presence check first
-  const auth = getAuth()
-  if (!auth) return
+// immediate sync from current authStore value
+showSidebar.value = !!authStore.value
 
-  // verify token validity (fast path may use expiry_at inside isTokenValid)
+// whenever authStore changes, verify token and update sidebar visibility
+watch(authStore, async (val) => {
+  if (!val) {
+    showSidebar.value = false
+    return
+  }
   try {
     const valid = await isTokenValid()
     showSidebar.value = valid
   } catch (e) {
     showSidebar.value = false
   }
-})
+}, { immediate: true })
 </script>
 
 <template>
