@@ -53,7 +53,7 @@ async function handleSubmit() {
 }
 
 onMounted(async () => {
-	// client-side check: if token exists and valid, redirect to dashboard
+
 	try {
 		const valid = await isTokenValid()
 		if (valid) {

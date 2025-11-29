@@ -5,7 +5,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <aside class="w-64 h-screen bg-white border-r border-gray-200 flex flex-col fixed left-0 top-0">
+  <aside class="w-64 h-screen bg-white border-r border-gray-200 flex flex-col">
 
     <div class="p-6 flex items-center gap-3">
       <img src="~/assets/image/face.png" alt="Face Recognition Logo"

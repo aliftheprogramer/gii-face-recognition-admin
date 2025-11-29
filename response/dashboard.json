@@ -1,0 +1,143 @@
+{
+    "count": 4,
+    "users": [
+        {
+            "id": 1,
+            "username": "dursamiii",
+            "email": "dursamiii19@gmail.com",
+            "faces": [
+                {
+                    "id": 4,
+                    "filepath": "storage/68b72d096f85416e8dbaf1e64d83fec9.jpg",
+                    "bbox_filepath": "storage/68b72d096f85416e8dbaf1e64d83fec9_bbox.png"
+                },
+                {
+                    "id": 5,
+                    "filepath": "storage/125492c96f1843878822c94b06a5ac3e.jpg",
+                    "bbox_filepath": "storage/125492c96f1843878822c94b06a5ac3e_bbox.png"
+                },
+                {
+                    "id": 6,
+                    "filepath": "storage/742168eb53e6445e8b1d5ba8fe912070.jpg",
+                    "bbox_filepath": "storage/742168eb53e6445e8b1d5ba8fe912070_bbox.png"
+                },
+                {
+                    "id": 7,
+                    "filepath": "storage/db96c1a1fae445109050f87ab5372c34.jpg",
+                    "bbox_filepath": "storage/db96c1a1fae445109050f87ab5372c34_bbox.png"
+                },
+                {
+                    "id": 8,
+                    "filepath": "storage/21232e89f3c643a88ff5993714ae4036.jpg",
+                    "bbox_filepath": "storage/21232e89f3c643a88ff5993714ae4036_bbox.png"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "username": "anaa",
+            "email": "anaa@gmail.com",
+            "faces": [
+                {
+                    "id": 1,
+                    "filepath": "storage/26082904e25f4a2b8cb9854f380228be.jpg",
+                    "bbox_filepath": "storage/26082904e25f4a2b8cb9854f380228be_bbox.png"
+                },
+                {
+                    "id": 2,
+                    "filepath": "storage/687f41e8b40a4a1fa928a2773e9c3101.jpg",
+                    "bbox_filepath": "storage/687f41e8b40a4a1fa928a2773e9c3101_bbox.png"
+                },
+                {
+                    "id": 3,
+                    "filepath": "storage/6a86a1e69eb44bbcb767b0df67d530fc.jpg",
+                    "bbox_filepath": "storage/6a86a1e69eb44bbcb767b0df67d530fc_bbox.png"
+                },
+                {
+                    "id": 19,
+                    "filepath": "storage/5c1d310fc2a744b4a3ab10a00162b85d.png",
+                    "bbox_filepath": "storage/5c1d310fc2a744b4a3ab10a00162b85d_bbox.png"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "username": "alifarya679@gmail.com",
+            "email": "alifarya679@gmail.com",
+            "faces": [
+                {
+                    "id": 20,
+                    "filepath": "storage/a6104fd3970040e3b1cb6ed21cd0bf60.jpg",
+                    "bbox_filepath": "storage/a6104fd3970040e3b1cb6ed21cd0bf60_bbox.png"
+                },
+                {
+                    "id": 21,
+                    "filepath": "storage/2ba6fbd23e5e496e8cf839fef02445af.jpg",
+                    "bbox_filepath": "storage/2ba6fbd23e5e496e8cf839fef02445af_bbox.png"
+                },
+                {
+                    "id": 22,
+                    "filepath": "storage/149d0aa5efd447d8b2ef262b6440fb12.jpg",
+                    "bbox_filepath": "storage/149d0aa5efd447d8b2ef262b6440fb12_bbox.png"
+                },
+                {
+                    "id": 23,
+                    "filepath": "storage/5740964ff3f243f8aeebace6810a7a36.jpg",
+                    "bbox_filepath": "storage/5740964ff3f243f8aeebace6810a7a36_bbox.png"
+                },
+                {
+                    "id": 24,
+                    "filepath": "storage/2fe32874e6dd4ad895303cc235c1bc88.jpg",
+                    "bbox_filepath": "storage/2fe32874e6dd4ad895303cc235c1bc88_bbox.png"
+                },
+                {
+                    "id": 25,
+                    "filepath": "storage/16efc522619245d0ba00cb3757aa3af5.jpg",
+                    "bbox_filepath": "storage/16efc522619245d0ba00cb3757aa3af5_bbox.png"
+                },
+                {
+                    "id": 26,
+                    "filepath": "storage/ea8dba166cb04b498b014a727258efd7.jpg",
+                    "bbox_filepath": "storage/ea8dba166cb04b498b014a727258efd7_bbox.png"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "username": "putri",
+            "email": "putri@gmail.com",
+            "faces": [
+                {
+                    "id": 30,
+                    "filepath": "storage/2b182df701694e609e3f3d6bb6f829d0.jpg",
+                    "bbox_filepath": "storage/2b182df701694e609e3f3d6bb6f829d0_bbox.png"
+                },
+                {
+                    "id": 31,
+                    "filepath": "storage/fbe56d3507e5454bbf3a28b4f8c2ddd1.jpg",
+                    "bbox_filepath": "storage/fbe56d3507e5454bbf3a28b4f8c2ddd1_bbox.png"
+                },
+                {
+                    "id": 32,
+                    "filepath": "storage/cd99401848764fb7af5f6e5eed5f380a.jpg",
+                    "bbox_filepath": "storage/cd99401848764fb7af5f6e5eed5f380a_bbox.png"
+                },
+                {
+                    "id": 33,
+                    "filepath": "storage/2216ac733dc841ca99c9cacaef9564f5.jpg",
+                    "bbox_filepath": "storage/2216ac733dc841ca99c9cacaef9564f5_bbox.png"
+                },
+                {
+                    "id": 34,
+                    "filepath": "storage/76ef64427f2d407bace16214775a53af.jpg",
+                    "bbox_filepath": "storage/76ef64427f2d407bace16214775a53af_bbox.png"
+                },
+                {
+                    "id": 35,
+                    "filepath": "storage/8589ec9755eb48b693532bf75b6c64b6.jpg",
+                    "bbox_filepath": "storage/8589ec9755eb48b693532bf75b6c64b6_bbox.png"
+                }
+            ]
+        }
+    ]
+}

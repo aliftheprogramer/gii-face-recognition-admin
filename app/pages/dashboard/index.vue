@@ -1,11 +1,49 @@
 <script setup lang="ts">
 definePageMeta({ middleware: ['auth'] as any })
-// Mock Data User sesuai gambar
-const users = ref(Array(9).fill({
-  name: 'Budi Siregar',
-  email: 'budisiregar@gmail.com',
-  photo: 'https://imgs.search.brave.com/Uy5R1sqgg79Frn7Wzl-IftTVO9E0w96gK0kBZrVEJQg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTMw/NDQwMDc2L3Bob3Rv/L2h1bWFuLWJvZHku/anBnP2I9MSZzPTYx/Mng2MTImdz0wJms9/MjAmYz1CM3NWazJj/R2ZoOUxUWGplVXd1/ZUQ3WXA3a1BJdVVX/RXBSYWYzTFlHUGhV/PQ                                                                                                     ' // Placeholder image
-}));
+
+import { ref, onMounted } from 'vue'
+import { ENDPOINTS, buildFileUrl } from '../../../utils/core'
+import { getAccessToken } from '../../../utils/auth'
+
+const users = ref<Array<{ name: string; email: string; photo: string }>>([])
+const loading = ref(false)
+const error = ref('')
+
+async function fetchUsers() {
+  loading.value = true
+  error.value = ''
+  try {
+    const token = getAccessToken()
+    const headers: Record<string,string> = { 'Content-Type': 'application/json' }
+    if (token) headers['Authorization'] = `Bearer ${token}`
+
+    const res = await fetch(ENDPOINTS.getUsers, { headers })
+    if (!res.ok) {
+      const text = await res.text().catch(() => '')
+      throw new Error(text || `HTTP ${res.status}`)
+    }
+
+    const data = await res.json().catch(() => ({}))
+    // expected shape: { count, users: [ { id, username, email, faces: [...] } ] }
+    const list = (data?.users ?? [])
+    users.value = list.map((u: any) => {
+      const firstFace = (u.faces && u.faces.length) ? u.faces[0].filepath : null
+      return {
+        name: u.username || u.name || 'Unknown',
+        email: u.email || '',
+        photo: firstFace ? buildFileUrl(firstFace) : 'https://i.pravatar.cc/150?img=12',
+      }
+    })
+  } catch (e: any) {
+    error.value = e?.message || 'Gagal memuat pengguna'
+  } finally {
+    loading.value = false
+  }
+}
+
+onMounted(() => {
+  fetchUsers()
+})
 </script>
 
 <template>
