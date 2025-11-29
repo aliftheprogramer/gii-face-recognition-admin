@@ -47,7 +47,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="space-y-6">
+  <div class="space-y-6 p-4">
     
     <div class="bg-white p-4 rounded-lg border border-gray-100">
       <div class="flex items-center gap-3 text-gray-400">

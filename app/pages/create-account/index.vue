@@ -36,24 +36,23 @@ function onDrop(e: DragEvent) {
 </script>
 
 <template>
-  <div class="p-6 md:p-10 bg-gray-50 min-h-screen">
-    <header class="mb-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100 flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-          </svg>
-          <input 
-            type="text" 
-            placeholder="Search" 
-            class="w-full outline-none text-gray-700 placeholder-gray-400"
-          />
+  <div class="p-4 md:p-4 bg-[#EFEFEF] min-h-screen">
+    <main class="max-w-6xl mx-auto">
+      <div class="space-y-6">
+        <div class="bg-white p-4 rounded-lg border border-gray-100">
+          <div class="flex items-center gap-3 text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+            <input 
+              type="text" 
+              placeholder="Search" 
+              class="w-full outline-none text-gray-700 placeholder-gray-400"
+            />                                   
+          </div>
         </div>
-      </div>
-    </header>
 
-    <main class="max-w-4xl mx-auto">
-      <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 space-y-6">
+        <div class="bg-white p-6 rounded-lg border border-gray-100 space-y-6">
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
@@ -84,12 +83,12 @@ function onDrop(e: DragEvent) {
           </div>
         </div>
 
-        <div class="space-y-2">
+          <div class="space-y-2">
           <label class="block text-sm font-semibold text-gray-700">
             Masukan 5 foto wajah
           </label>
           <div 
-            class="border-2 border-dashed border-gray-300 p-16 rounded-xl text-center bg-gray-50 transition-colors hover:border-blue-500"
+            class="border-2 border-dashed border-gray-300 p-16 rounded-lg text-center bg-gray-50 transition-colors hover:border-blue-500"
             @dragover.prevent 
             @drop="onDrop"
           >
@@ -106,7 +105,7 @@ function onDrop(e: DragEvent) {
           <button 
             @click="handleSubmit"
             :disabled="isUploading"
-            class="w-full p-3 rounded-lg font-semibold transition-colors"
+            class="w-full py-3 md:py-4 rounded-lg font-semibold text-lg transition-colors"
             :class="{ 
                 'bg-blue-500 text-white hover:bg-blue-600': !isUploading, 
                 'bg-gray-400 text-gray-700 cursor-not-allowed': isUploading 
@@ -114,6 +113,7 @@ function onDrop(e: DragEvent) {
           >
             {{ isUploading ? 'Menyimpan...' : 'Simpan' }}
           </button>
+        </div>
         </div>
       </div>
     </main>

@@ -1,7 +1,51 @@
 <!-- app/components/SideNavbar.vue -->
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { authStore, getAuth, getAccessToken, removeAuth } from '../../utils/auth'
+import { useRouter } from 'vue-router'
+
 const route = useRoute();
+
+// reactive current user: prefer in-memory store, fallback to localStorage
+const currentUser = computed(() => {
+  return authStore.value?.admin ?? (process.client ? getAuth()?.admin ?? null : null)
+})
+
+const displayName = computed(() => currentUser.value?.name || currentUser.value?.username || 'Name')
+const displayRole = computed(() => currentUser.value?.role || 'Admin')
+
+const router = useRouter()
+
+async function handleLogout() {
+  if (!process.client) return
+
+  const logoutUrl = window.location.origin + '/api/v1/auth/logout'
+  const token = getAccessToken()
+  const refresh = getAuth()?.refresh_token ?? null
+
+  const headers: Record<string,string> = { 'Content-Type': 'application/json' }
+  if (token) headers['Authorization'] = `Bearer ${token}`
+  if (refresh) headers['x-refres-token'] = refresh
+
+  try {
+    await fetch(logoutUrl, { method: 'POST', headers })
+  } catch (e) {
+    // ignore network error, still proceed to clear client state
+  }
+
+  try {
+    removeAuth()
+  } catch (e) {}
+  try { authStore.value = null } catch (e) {}
+
+  // redirect to login
+  try {
+    router.push('/login')
+  } catch (e) {
+    window.location.href = '/login'
+  }
+}
 </script>
 
 <template>
@@ -23,12 +67,12 @@ const route = useRoute();
           class="w-[42px] h-[42px] rounded-full object-cover border border-gray-200">
 
         <div class="space-y-1">
-          <p class="font-semibold text-[14px] leading-[120%] text-gray-800 text-center">
-            Name
+          <p class="font-semibold text-[14px] leading-[120%] text-gray-800">
+            {{ displayName }}
           </p>
 
-          <p class="font-semibold text-[14px] leading-[120%] text-gray-400 text-center">
-            Admin
+          <p class="font-semibold text-[14px] leading-[120%] text-gray-400">
+            {{ displayRole }}
           </p>
         </div>
         <div class="ml-auto">
@@ -75,6 +119,7 @@ const route = useRoute();
 
     <div class="p-6 mt-auto">
       <button
+        @click="handleLogout"
         class="flex items-center w-[230px] h-[44px] gap-[18px] pl-[9px] py-[10px] border-r-2 border-transparent text-red-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="w-[24px] h-[24px]">
