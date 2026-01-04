@@ -9,6 +9,8 @@ export const ENDPOINTS = {
   getUsers: BASE_URL + 'get-users',
   // delete user
   deleteUser: BASE_URL + 'delete-user',
+
+  addUser: BASE_URL + 'create-account',
   // add more endpoints here, e.g.:
   // users: BASE_URL + 'users',
   // register: BASE_URL + 'register',

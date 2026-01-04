@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { ENDPOINTS } from '../../../utils/core'
+import { getAccessToken } from '../../../utils/auth'
+
 // State untuk menyimpan data input form
-const userName = ref('budi siregar'); // Nilai default sesuai contoh gambar
-const userEmail = ref('budisiregar@gmail.com'); // Nilai default sesuai contoh gambar
+const userName = ref(''); // Kosongkan default value
+const userEmail = ref(''); // Kosongkan default value
 const isUploading = ref(false);
 const uploadedFiles = ref<File[]>([]);
 const fileInput = ref<HTMLInputElement | null>(null);
@@ -20,27 +24,47 @@ async function handleSubmit() {
 
   isUploading.value = true;
   
-  // Persiapan FormData untuk upload
-  const formData = new FormData();
-  formData.append('name', userName.value);
-  formData.append('email', userEmail.value);
-  
-  uploadedFiles.value.forEach((file) => {
-    formData.append('photos', file);
-  });
+  try {
+    // Persiapan FormData untuk upload
+    const formData = new FormData();
+    formData.append('username', userName.value);
+    if (userEmail.value) {
+      formData.append('email', userEmail.value);
+    }
+    
+    uploadedFiles.value.forEach((file) => {
+      formData.append('files', file);
+    });
 
-  console.log('Data yang akan dikirim:', {
-    name: userName.value,
-    email: userEmail.value,
-    files: uploadedFiles.value.map(f => f.name)
-  });
-  
-  // Simulasi proses upload
-  setTimeout(() => {
+    // Kirim request ke API
+    const token = getAccessToken();
+    const headers: Record<string, string> = {};
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+
+    const res = await fetch(ENDPOINTS.addUser, {
+      method: 'POST',
+      headers,
+      body: formData
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text || 'Gagal membuat akun');
+    }
+
+    const data = await res.json();
+    alert('Akun berhasil dibuat!');
+    
+    // Reset form
+    userName.value = '';
+    userEmail.value = '';
+    uploadedFiles.value = [];
+    
+  } catch (e: any) {
+    alert(e.message || 'Terjadi kesalahan saat membuat akun');
+  } finally {
     isUploading.value = false;
-    alert('Akun berhasil dibuat! (Simulasi)');
-    // Reset form opsional
-  }, 1500);
+  }
 }
 
 // Validasi dan proses file
